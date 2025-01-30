@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "897514154521",
+    "firebase_url": "https://sri-hari-astro-default-rtdb.firebaseio.com",
+    "project_id": "sri-hari-astro",
+    "storage_bucket": "sri-hari-astro.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897514154521:android:c437e6940166c7e66b1888",
+        "android_client_info": {
+          "package_name": "com.goodguys.sriHari"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDJ3ETRAzDBRzM1pzziEA1sHItr6O96a4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:897514154521:android:9c70c0eea3eddaa46b1888",
+        "android_client_info": {
+          "package_name": "com.goodguys.sriHariAstro"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDJ3ETRAzDBRzM1pzziEA1sHItr6O96a4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
