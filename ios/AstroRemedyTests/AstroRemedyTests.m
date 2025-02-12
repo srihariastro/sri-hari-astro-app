@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface AstroRemedyTests : XCTestCase
+@interface sri-hari-astroTests : XCTestCase
 
 @end
 
-@implementation AstroRemedyTests
+@implementation sri-hari-astroTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

@@ -53,7 +53,7 @@ const Assignedpujanext = ({ navigation, route, dispatch }) => {
     }
     function handleClick() {
         Alert.alert(
-            'AstroRemedy',
+            'sri-hari-astro',
             'Click or Upload Images',
             [
                 {

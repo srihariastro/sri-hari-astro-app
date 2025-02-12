@@ -150,7 +150,7 @@ const AstrologerLogin = ({ dispatch, navigation }) => {
           {/* <Image source={require('../../assets/images/astrologers.png')} style={{ position: 'absolute', width: '100%', height: '45%' }} /> */}
           <View style={{ padding: 20, paddingBottom: 20 }}>
             <View style={{ padding: 5, borderRadius: 20, paddingTop: 45,  alignSelf:'center' }}>
-              <Image source={require('../../assets/images/newlogo.png')} style={{ width:SCREEN_WIDTH * 0.4, height:SCREEN_WIDTH * 0.4, resizeMode:'contain'}}/>
+              <Image source={require('../../assets/images/SriHariAstro.png')} style={{ width:SCREEN_WIDTH * 0.4, height:SCREEN_WIDTH * 0.4, resizeMode:'contain'}}/>
 
               {/* <Text style={{ color: 'black', paddingLeft: 30, paddingRight: 30, paddingTop: 15, paddingBottom: 10, fontSize: getFontSize(1.7), textAlign: 'justify', fontWeight: 'bold', color: 'black' }}>
                 "Join us on a journey where your astrological brilliance not only earns respect but also unlocks unparalleled prosperity."

@@ -271,780 +271,433 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
         backgroundColor={colors.new_color}
         barStyle="light-content"
       />
-      <View style={{ flex: 0, padding: 10, paddingVertical: 2, }}>
-
-        <View
-          style={{
-            flex: 0,
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('astrologerDetailes')}
-            style={{
-              padding: 5, flexDirection: 'row',
-              alignItems: 'center', width: SCREEN_WIDTH * 0.5,
-            }}>
-            <View style={{ height: SCREEN_WIDTH * 0.15, width: SCREEN_WIDTH * 0.15, overflow: 'hidden', borderRadius: 50 }}>
-              <Image
-                source={{ uri: base_url + providerData?.profileImage }}
-                style={{ height: SCREEN_WIDTH * 0.15, width: SCREEN_WIDTH * 0.15, objectFit: "cover" }}
-              />
-            </View>
-            <Text style={{ marginLeft: 4, ...Fonts.black16RobotoMedium }}> {truncatedName}</Text>
-          </TouchableOpacity>
-          <View style={{ display: "flex", flexDirection: "row", gap: 10, }}>
-            <TouchableOpacity onPress={() => navigation.navigate('Notifications')} >
-              <Feather name="bell" size={35} style={{ color: '#F45F4B' }} />
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.openDrawer()} >
-              <Feather name="menu" size={35} style={{ color: '#F45F4B' }} />
-            </TouchableOpacity>
-          </View>
-        </View>
+      <LinearGradient
+        colors={['#FFD2BE', '#fff']}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
+          width: "100%"
+        }}
+      >
 
 
-
-
-      </View>
-      <View style={{ flex: 1 }}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          refreshControl={
-            <RefreshControl
-              refreshing={isRefereshing}
-              onRefresh={() => dispatch(SettingActions.onRefreshHomeScreen())}
-            // onRefresh={on_referesh}
-            />
-          }>
+        <View style={{ flex: 0, padding: 10, paddingVertical: 2, backgroundColor: colors.new_color }}>
           <View
             style={{
               flex: 0,
               flexDirection: 'row',
               alignItems: 'center',
-              justifyContent: 'space-around',
-              borderBottomWidth: 1,
-              borderTopWidth: 1,
-              paddingVertical: 10,
-              borderColor: colors.black_color5,
-              marginTop: 5,
+              justifyContent: 'space-between',
+
             }}>
-            <TouchableOpacity style={styles.boxContainer}
-              onPress={() => navigation.navigate('Walletwithdraw')}
-            >
-
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: "#fff",
-                  fontFamily: fonts.semi_bold,
-
-                }}>
-
-                ₹{parseFloat(providerData?.wallet_balance).toFixed(2)}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: "#fff",
-                  fontWeight: 'bold',
-                  marginLeft: 5,
-                }}>
-                {t("wallet")}
-              </Text>
-            </TouchableOpacity>
-            <View style={styles.boxContainer}>
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: "#fff",
-                  fontFamily: fonts.semi_bold,
-                }}>
-
-                {showNumber(providerData?.today_earnings?.earnings)}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: "#fff",
-                  fontWeight: 'bold',
-                  marginLeft: 5,
-                  alignSelf: 'center'
-                }}>
-                {t('today_collection')}
-              </Text>
-            </View>
             <TouchableOpacity
-              onPress={() => navigation.navigate('providerFollowing')}
-              style={styles.boxContainer}>
-              <Text
-                style={{
-                  fontSize: 12,
-                  color: "#fff",
-                  fontFamily: fonts.semi_bold,
-                }}>
-                {/* {providerData?.follower_count} */}
-                {formattedCount}
-              </Text>
-              <Text
-                style={{
-                  fontSize: 10,
-                  color: "#fff",
-                  fontWeight: 'bold',
-                  marginLeft: 5,
-                }}>
-                {t('following')}
-              </Text>
+              onPress={() => navigation.navigate('astrologerDetailes')}
+              style={{
+                padding: 5, flexDirection: 'row',
+                alignItems: 'center', width: SCREEN_WIDTH * 0.5,
+              }}>
+              <View style={{ height: SCREEN_WIDTH * 0.15, width: SCREEN_WIDTH * 0.15, overflow: 'hidden', borderRadius: 50 }}>
+                <Image
+                  source={{ uri: base_url + providerData?.profileImage }}
+                  style={{ height: SCREEN_WIDTH * 0.15, width: SCREEN_WIDTH * 0.15, objectFit: "cover" }}
+                />
+              </View>
+              <Text style={{ marginLeft: 4, ...Fonts.black16RobotoMedium }}> {truncatedName}</Text>
             </TouchableOpacity>
+            <View style={{ display: "flex", flexDirection: "row", gap: 10, }}>
+              <TouchableOpacity onPress={() => navigation.navigate('Notifications')} >
+                <Feather name="bell" size={35} style={{ color: "#fff" }} />
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.openDrawer()} >
+                <Feather name="menu" size={35} style={{ color: '#fff' }} />
+              </TouchableOpacity>
+            </View>
           </View>
+        </View>
+        <View style={{ flex: 1 }}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            refreshControl={
+              <RefreshControl
+                refreshing={isRefereshing}
+                onRefresh={() => dispatch(SettingActions.onRefreshHomeScreen())}
 
-          <View style={{ paddingHorizontal: 15 }}>
+              />
+            }
+          >
             <View
               style={{
                 flex: 0,
                 flexDirection: 'row',
-                justifyContent: 'space-between',
                 alignItems: 'center',
-                flexWrap: 'wrap',
-                marginTop: 20,
+                justifyContent: 'space-around',
+                //borderBottomWidth: 1,
+                //borderTopWidth: 1,
+                paddingVertical: 10,
+                //borderColor: colors.black_color5,
+                marginTop: 5,
               }}>
-              <TouchableOpacity
-                onPress={() => {
-                  if (providerData?.call_status == 'offline' || providerData?.call_status == 'busy') {
-                    dispatch(SettingActions.updateCallStatus('online'))
-                  } else {
-                    dispatch(SettingActions.updateCallStatus('offline'))
-                  }
-                }}
-                style={{
-                  ...styles.boxContainerA,
-                  backgroundColor:
-                    providerData?.call_status == 'offline' || providerData?.call_status.length == 0
-                      ? colors.black_color5 : providerData?.call_status == 'busy'
-                        ? "#ffc600" : colors.green_color2,
-                }}>
-                <FontAwesome
-                  name="phone"
-                  color={colors.white_color}
-                  size={16}
-                />
-                <Text
-                  style={{
-                    fontSize: 13,
-                    color: colors.white_color,
-                    fontWeight: 'normal',
-                    marginLeft: 5,
-                  }}>
-                  {providerData?.call_status.length == 0 ?
-                    t("offline") : providerData?.call_status == 'online' ? t("online") :
-                      providerData?.call_status == 'busy' ? t("busy") : t("offline")}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => {
-                  if (providerData?.video_call_status == 'offline' || providerData?.video_call_status == 'busy') {
-                    dispatch(SettingActions.updateVideoCallStatus('online'))
-                  } else {
-                    dispatch(SettingActions.updateVideoCallStatus('offline'))
-                  }
-                }}
-                // onPress={() => showToastMessage({ message: 'Feature Coming Soon' })}
-                style={{
-                  ...styles.boxContainerA,
-                  backgroundColor:
-                    providerData?.video_call_status == 'offline' || providerData?.video_call_status.length == 0
-                      ? colors.black_color5 : providerData?.video_call_status == 'busy'
-                        ? "#ffc600" : colors.green_color2,
-                  // backgroundColor: colors.black_color5
-                }}
-              >
-                <FontAwesome
-                  name="video-camera"
-                  color={colors.white_color}
-                  size={16}
-                />
-                <Text
-                  style={{
-                    fontSize: 13,
-                    color: colors.white_color,
-                    fontWeight: 'normal',
-                    marginLeft: 5,
-                  }}>
-                  {providerData?.video_call_status.length == 0 ?
-                    t("offline") : providerData?.video_call_status == 'online' ? t("online") :
-                      providerData?.video_call_status == 'busy' ? t("busy") : t("offline")}
-                  {/* Offline */}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                // onPress={() => setChatModalVisible(true)}
-                onPress={() => {
-                  if (providerData?.chat_status == 'offline' || providerData?.chat_status == 'busy') {
-                    dispatch(SettingActions.updateChatStatus('online'))
-                  } else {
-                    dispatch(SettingActions.updateChatStatus('offline'))
-                  }
-                }}
-                style={{
-                  ...styles.boxContainerA,
-                  backgroundColor:
-                    providerData?.chat_status == 'offline' || providerData?.chat_status.length == 0
-                      ? colors.black_color5 : providerData?.chat_status == 'busy'
-                        ? "#ffc600" : colors.green_color2,
-                }}>
-                <FontAwesome
-                  name="wechat"
-                  color={colors.white_color}
-                  size={16}
-                />
-                <Text
-                  style={{
-                    fontSize: 13,
-                    color: colors.white_color,
-                    fontWeight: 'normal',
-                    marginLeft: 5,
-                  }}>
-                  {providerData?.chat_status.length == 0 ? t("offline") :
-                    providerData?.chat_status == 'online' ? t("online") : providerData?.chat_status == 'offline' ? t("offline") : t("busy")}
-                </Text>
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('livePreview')}
-                style={{
-                  ...styles.boxContainerA,
-                  backgroundColor: colors.new_color,
-                }}>
-                {/* <FontAwesome
-                  name="video-camera"
-                  color={colors.white_color}
-                  size={getFontSize(2)}
-                /> */}
-                <Image source={require('../../assets/images/icon/live.png')} style={{ height: SCREEN_WIDTH * 0.05, width: SCREEN_WIDTH * 0.05 }} />
-                <Text
-                  style={{
-                    fontSize: 13,
-                    color: colors.white_color,
-                    fontWeight: 'normal',
-                    marginLeft: 5,
-                  }}>
-                  {t("go_live")}
-                </Text>
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity
-              onPress={() => onNextOnline()}
-              style={{
-                ...styles.boxContainerA,
-                width: '100%',
-                backgroundColor: providerData?.nextOnline?.date ? colors.green_color2 : "#f45f4b",
-              }}>
-              {/* <FontAwesome
-                name="phone"
-                color={colors.white_color}
-                size={getFontSize(2)}
-              /> */}
-              <Text
-                style={{
-                  fontSize: 14,
-                  color: colors.white_color,
-                  fontWeight: 'normal',
-                  marginLeft: 5,
-                }}>
-                {t("new_online")}
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('announcementdetails')}
-              style={{
-                flex: 0,
-                padding: 10,
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                backgroundColor: "#f45f4b47",
-                borderWidth: 1,
-                borderColor: "#f45f4b47",
-                marginTop: 15,
-                borderRadius: 5,
 
-                shadowColor: colors.black_color7,
-                shadowOffset: { width: 2, height: 2 },
-                shadowOpacity: 0.3,
-                shadowRadius: 5,
-              }}>
-              <TouchableOpacity style={{ flex: 0, width: '90%' }}
-                onPress={() => navigation.navigate('announcementdetails')}
+              <LinearGradient
+                colors={['#FF996E', '#FF996E']}
+                style={styles.boxContainer}
               >
-                <Text
-                  style={{
-                    fontSize: 12,
-                    color: "#000",
-                    fontFamily: fonts.medium,
-                    marginBottom: 5,
-
-                  }}>
-                  {t('AstroRemedy')}{'\n'}{t("announcement_message")}{'\n'}{t("please_check")}
-                </Text>
-              </TouchableOpacity>
-              <View
-                style={{
-                  flex: 0,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
                 <TouchableOpacity
-                  onPress={() => {
-                    navigation.navigate('announcementdetails')
-                  }}
-                  disabled={anouncementData ? anouncementData?.length == 0 : false}
-                  style={{
-                    flex: 0,
-                    width: 30,
-                    height: 30,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: "#F45F4B",
-                    borderRadius: 4,
-                  }}>
+                  onPress={() => navigation.navigate('Walletwithdraw')}
+                >
+
                   <Text
                     style={{
-                      fontSize: 12,
+                      fontSize: 14,
                       color: "#fff",
-                      fontWeight: 'normal',
+                      textAlign:"center",
+                      fontFamily: fonts.semi_bold,
+
                     }}>
-                    {anouncementData ? anouncementData.length : 0}
+
+                    ₹{parseFloat(providerData?.wallet_balance).toFixed(2)}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: "#fff",
+                      fontWeight: 'bold',
+                      textAlign:"center",
+                      marginTop: 5,
+                    }}>
+                    {t("wallet")}
                   </Text>
                 </TouchableOpacity>
-              </View>
-            </TouchableOpacity>
+              </LinearGradient>
 
 
+              <LinearGradient
+                colors={['#FF996E', '#FF996E']}
+                style={styles.boxContainer}
+              >
 
-            <View style={{
-              marginTop: 20, flex: 0,
-              flexDirection: 'row', justifyContent: 'space-between',
-            }}>
-              <TouchableOpacity
-
-                activeOpacity={0.8}
-                onPress={() => {
-                  navigation.navigate('videohistory');
-                }}
-                style={{ flex: 0 }}>
-                <LinearGradient
-                  colors={['#ff9966', '#ff5e62']}
-                  style={{
-                    width: width * 0.42,
-                    alignItems: 'center',
-                    marginBottom: 15,
-                    borderRadius: 10,
-                    elevation: 8,
-                    shadowColor: colors.black_color4,
-                    paddingVertical: 15,
-                  }}>
-                  <View
-                    style={{
-
-                    }}>
-                  </View>
-
+                <View >
                   <Text
                     style={{
-                      fontSize: getFontSize(2),
-                      color: colors.white_color,
-                      marginTop: 5,
-                      fontWeight: 'bold',
-                      textAlign: 'center',
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: fonts.semi_bold,
+                      textAlign:"center",
                     }}>
-                    {/* Today Active{'\n'} Time */}
-                    {t("Today Active")}{"\n"}{t("Time")}
+
+                    {showNumber(providerData?.today_earnings?.earnings)}
                   </Text>
-                  <View >
-                    <Text
-                      style={{
-                        fontSize: 13,
-                        color: colors.white_color,
-                        marginTop: 3,
-                        fontFamily: fonts.medium,
-                        textAlign: 'center',
-                      }}>
-                      <Text>{formatTotalOnlineDuration(displayDuration)}</Text>
-                    </Text>
-                  </View>
-
-                </LinearGradient>
-              </TouchableOpacity>
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={() => {
-                  navigation.navigate('videohistory');
-                }}
-                style={{ flex: 0 }}>
-                <LinearGradient
-                  colors={['#ff9966', '#ff5e62']}
-                  style={{
-                    width: width * 0.42,
-                    alignItems: 'center',
-                    marginBottom: 15,
-                    borderRadius: 10,
-                    elevation: 8,
-                    shadowColor: colors.black_color4,
-                    paddingVertical: 15,
-                  }}>
-                  <View
-                    style={{
-
-                    }}>
-
-                  </View>
-
                   <Text
                     style={{
-                      fontSize: getFontSize(2),
-                      color: colors.white_color,
-                      marginTop: 5,
+                      fontSize: 13,
+                      color: "#fff",
                       fontWeight: 'bold',
-                      textAlign: 'center',
+                      marginTop: 5,
+                      textAlign:"center",
                     }}>
-                    {t("Today InActive")}{"\n"}{t("Time")}
+                    {t('today_collection')}
                   </Text>
-                  <View >
-                    <Text
-                      style={{
-                        fontSize: 13,
-                        color: colors.white_color,
-                        marginTop: 3,
-                        fontFamily: fonts.medium,
-                        textAlign: 'center',
-                      }}>
-                      <Text> {formatTotalOfflineDuration(offlineData?.data?.totalOfflineDuration)}</Text>
-                    </Text>
-                  </View>
+                </View>
+              </LinearGradient>
+              <LinearGradient
+                colors={['#FF996E', '#FF996E']}
+                style={styles.boxContainer}
+              >
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('providerFollowing')}
+                >
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: fonts.semi_bold,
+                      textAlign:"center",
+                    }}>
 
-                </LinearGradient>
-
-              </TouchableOpacity>
+                    {formattedCount}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: "#fff",
+                      fontWeight: 'bold',
+                      textAlign:"center",
+                      marginTop: 5,
+                    }}>
+                    {t('following')}
+                  </Text>
+                </TouchableOpacity>
+              </LinearGradient>
             </View>
 
+            <View style={styles.boxCont}>
 
-            <View
-              style={{
-                flex: 0,
-                padding: 15,
-                backgroundColor: colors.background_theme1,
-                marginTop: 10,
-                borderRadius: 10,
-                shadowColor: colors.black_color6,
-                shadowOffset: { width: 2, height: 2 },
-                shadowOpacity: 0.3,
-                shadowRadius: 5,
-              }}>
-              <View
-                style={{
-                  flex: 0,
-                  flexDirection: 'row',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}>
-                {/* <FontAwesome
-                  name="bar-chart"
-                  color={colors.yellow_color1}
-                  size={getFontSize(2)}
-                /> */}
-                <Text
-                  style={{
-                    fontSize: 14,
-                    color: colors.black_color,
-                    fontWeight: 'bold',
-                    marginLeft: 5,
-                    marginBottom: 8
-                  }}>
-                  {t("Your Pickup Order History")}
-                </Text>
-              </View>
               <View
                 style={{
                   flex: 0,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
+                  flexWrap: 'wrap',
                   marginTop: 20,
                 }}>
                 <TouchableOpacity
-                  activeOpacity={0.8}
                   onPress={() => {
-                    navigation.navigate('chatHistory');
+                    if (providerData?.call_status == 'offline' || providerData?.call_status == 'busy') {
+                      dispatch(SettingActions.updateCallStatus('online'))
+                    } else {
+                      dispatch(SettingActions.updateCallStatus('offline'))
+                    }
                   }}
-                  style={{ flex: 0 }}>
-                  <LinearGradient
-                    colors={['#FDC830', '#F37335']}
+                  style={{
+                    ...styles.boxContainerA,
+                    backgroundColor:
+                      providerData?.call_status == 'offline' || providerData?.call_status.length == 0
+                        ? colors.black_color5 : providerData?.call_status == 'busy'
+                          ? "#ffc600" : colors.green_color2,
+                  }}>
+                  <FontAwesome
+                    name="phone"
+                    color={colors.white_color}
+                    size={16}
+                  />
+                  <Text
                     style={{
-                      flex: 0,
-                      width: width * 0.42,
-                      height: SCREEN_HEIGHT * 0.15,
-                      // justifyContent: 'center',
-                      alignItems: 'center',
-                      marginBottom: 15,
-                      borderRadius: 10,
-                      marginLeft: -5,
-                      marginRight: 8,
-                      elevation: 8,
-                      shadowColor: colors.black_color4,
+                      fontSize: 13,
+                      color: colors.white_color,
+                      fontWeight: 'normal',
+                      marginLeft: 5,
                     }}>
-                    <View
-                      style={{
-                        flex: 0,
-                        flexDirection: 'row',
-                        alignItems: 'center',
-
-                        marginTop: -15
-                      }}>
-                      <View
-                        style={{
-                          flex: 0,
-                          width: 30,
-                          height: 30,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          backgroundColor: '#FFFFFF',
-                          borderRadius: 100,
-                          marginBottom: 2,
-                          borderWidth: 1,
-                          borderColor: colors.new_color
-
-                        }}>
-                        <Text
-                          style={{
-                            fontSize: getFontSize(1.5),
-                            color: colors.new_color,
-                            fontFamily: fonts.medium,
-                          }}>
-                          1
-                        </Text>
-                      </View>
-                      {/* <View style={{ flex: 0}}>
-                    <FontAwesome name='question-circle-o' color={colors.black_color} size={18} />
-                    </View> */}
-                    </View>
-                    {/* <View style={styles.boxContainerB}>
-                      <Text style={{ fontSize: 12, color: colors.white_color }}>
-                        Chat
-                      </Text>
-                    </View> */}
-                    <Text
-                      style={{
-                        fontSize: getFontSize(2),
-                        color: colors.white_color,
-                        marginTop: 3,
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        // fontFamily: fonts.montserrat_medium,
-                      }}>
-                      {chatHistoryData?.length}
-                    </Text>
-                    <View style={{ flex: 0, width: '80%' }}>
-                      <Text
-                        style={{
-                          fontSize: getFontSize(1.4),
-                          color: colors.white_color,
-                          marginTop: 1,
-                          fontFamily: fonts.medium,
-                          textAlign: 'center',
-                        }}>
-                        {t('Total Chat')}
-
-
-                      </Text>
-                    </View>
-                    <View style={styles.boxContainerB}>
-                      <Text style={{ fontSize: 12, color: colors.new_color }}>
-                        {t("Chat")}
-                      </Text>
-                    </View>
-                  </LinearGradient>
+                    {providerData?.call_status.length == 0 ?
+                      t("offline") : providerData?.call_status == 'online' ? t("online") :
+                        providerData?.call_status == 'busy' ? t("busy") : t("offline")}
+                  </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  activeOpacity={0.8}
                   onPress={() => {
-                    navigation.navigate('callHistory');
+                    if (providerData?.video_call_status == 'offline' || providerData?.video_call_status == 'busy') {
+                      dispatch(SettingActions.updateVideoCallStatus('online'))
+                    } else {
+                      dispatch(SettingActions.updateVideoCallStatus('offline'))
+                    }
                   }}
-                  style={{ flex: 0 }}>
-                  <LinearGradient
-                    colors={['#38ef7d', '#11998e']}
+                  style={{
+                    ...styles.boxContainerA,
+                    backgroundColor:
+                      providerData?.video_call_status == 'offline' || providerData?.video_call_status.length == 0
+                        ? colors.black_color5 : providerData?.video_call_status == 'busy'
+                          ? "#ffc600" : colors.green_color2,
+
+                  }}
+                >
+                  <FontAwesome
+                    name="video-camera"
+                    color={colors.white_color}
+                    size={16}
+                  />
+                  <Text
                     style={{
-                      flex: 0,
-                      width: width * 0.42,
-                      height: SCREEN_HEIGHT * 0.15,
-
-                      //justifyContent: 'center',
-                      alignItems: 'center',
-                      marginBottom: 15,
-                      borderRadius: 10,
-                      elevation: 8,
-                      shadowColor: colors.black_color4,
+                      fontSize: 13,
+                      color: colors.white_color,
+                      fontWeight: 'normal',
+                      marginLeft: 5,
                     }}>
-                    <View
-                      style={{
-                        flex: 0,
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                      }}>
-                      <View
-                        style={{
-                          flex: 0,
-                          width: 30,
-                          height: 30,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          backgroundColor: '#ffffff',
-                          borderRadius: 100,
-                          marginTop: -15,
-                          borderColor: colors.new_color,
-                          borderWidth: 1
-                        }}>
-                        <Text
-                          style={{
-                            fontSize: getFontSize(1.5),
-                            color: colors.new_color,
-                            fontFamily: fonts.medium,
-                          }}>
-                          2
-                        </Text>
-                      </View>
-                    </View>
-                    {/* <View style={styles.boxContainerB}>
-                      <Text
-                        style={{
-                          fontSize: getFontSize(1.4),
-                          color: colors.white_color,
-                          textAlign: 'center',
-                        }}>
-                        Call
-                      </Text>
-                    </View> */}
-                    <Text
-                      style={{
-                        fontSize: getFontSize(2),
-                        color: colors.white_color,
-                        marginTop: 5,
-                        fontWeight: 'bold',
-                        textAlign: 'center',
-                        // fontFamily: fonts.montserrat_medium,
-                      }}>
-                      {callHistoryData?.length}
-                    </Text>
-                    <View style={{ flex: 0, width: '80%' }}>
-                      <Text
-                        style={{
-                          fontSize: getFontSize(1.4),
-                          color: colors.white_color,
-                          marginTop: 0.5,
-                          fontFamily: fonts.medium,
-                          textAlign: 'center',
-                        }}>
-                        {t('Total Voice Call')}
-                      </Text>
-                    </View>
-                    <View style={styles.boxContainerB}>
-                      <Text
-                        style={{
-                          fontSize: 12,
-                          color: colors.new_color,
-                          textAlign: 'center',
-                        }}>
-                        {t("Call")}
-                      </Text>
-                    </View>
-                  </LinearGradient>
+                    {providerData?.video_call_status.length == 0 ?
+                      t("offline") : providerData?.video_call_status == 'online' ? t("online") :
+                        providerData?.video_call_status == 'busy' ? t("busy") : t("offline")}
+
+                  </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
 
+                  onPress={() => {
+                    if (providerData?.chat_status == 'offline' || providerData?.chat_status == 'busy') {
+                      dispatch(SettingActions.updateChatStatus('online'))
+                    } else {
+                      dispatch(SettingActions.updateChatStatus('offline'))
+                    }
+                  }}
+                  style={{
+                    ...styles.boxContainerA,
+                    backgroundColor:
+                      providerData?.chat_status == 'offline' || providerData?.chat_status.length == 0
+                        ? colors.black_color5 : providerData?.chat_status == 'busy'
+                          ? "#ffc600" : colors.green_color2,
+                  }}>
+                  <FontAwesome
+                    name="wechat"
+                    color={colors.white_color}
+                    size={16}
+                  />
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: colors.white_color,
+                      fontWeight: 'normal',
+                      marginLeft: 5,
+                    }}>
+                    {providerData?.chat_status.length == 0 ? t("offline") :
+                      providerData?.chat_status == 'online' ? t("online") : providerData?.chat_status == 'offline' ? t("offline") : t("busy")}
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('livePreview')}
+                  style={{
+                    ...styles.boxContainerA,
+                    backgroundColor: colors.new_color,
+                  }}>
+
+                  <Image source={require('../../assets/images/icon/live.png')} style={{ height: SCREEN_WIDTH * 0.05, width: SCREEN_WIDTH * 0.05 }} />
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: colors.white_color,
+                      fontWeight: 'normal',
+                      marginLeft: 5,
+                    }}>
+                    {t("go_live")}
+                  </Text>
+                </TouchableOpacity>
               </View>
+              <TouchableOpacity
+                onPress={() => onNextOnline()}
+                style={{
+                  ...styles.boxContainerA,
+                  width: '100%',
+                  backgroundColor: providerData?.nextOnline?.date ? colors.green_color2 : "#f45f4b",
+                }}>
+
+                <Text
+                  style={{
+                    fontSize: 14,
+                    color: colors.white_color,
+                    fontWeight: 'normal',
+                    marginLeft: 5,
+                  }}>
+                  {t("new_online")}
+                </Text>
+              </TouchableOpacity>
+
+            </View>
+
+            <View style={{ paddingHorizontal: 15 }}>
 
 
-              <View
+              <TouchableOpacity
+                onPress={() => navigation.navigate('announcementdetails')}
                 style={{
                   flex: 0,
+                  padding: 10,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
                   alignItems: 'center',
-                  marginTop: 6,
-                }}>
+                  backgroundColor: "#FF7C43",
+                  borderWidth: 1,
+                  borderColor: "#f45f4b47",
+                  marginTop: 15,
+                  borderRadius: 5,
 
+                  shadowColor: colors.black_color7,
+                  shadowOffset: { width: 2, height: 2 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 5,
+                }}>
+                <TouchableOpacity style={{ flex: 0, width: '90%' }}
+                  onPress={() => navigation.navigate('announcementdetails')}
+                >
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: "#fff",
+                      fontFamily: fonts.medium,
+                      marginBottom: 5,
+
+                    }}>
+                    {t('sri-hari-astro')}{'\n'}{t("announcement_message")}{'\n'}{t("please_check")}
+                  </Text>
+                </TouchableOpacity>
+                <View
+                  style={{
+                    flex: 0,
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+                  <TouchableOpacity
+                    onPress={() => {
+                      navigation.navigate('announcementdetails')
+                    }}
+                    disabled={anouncementData ? anouncementData?.length == 0 : false}
+                    style={{
+                      flex: 0,
+                      width: 40,
+                      height: 40,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: "#fff",
+                      borderRadius: 50,
+                    }}>
+                    <Text
+                      style={{
+                        fontSize: 13,
+                        color: "#000",
+                        fontWeight: 'normal',
+                      }}>
+                      {anouncementData ? anouncementData.length : 0}
+                    </Text>
+                  </TouchableOpacity>
+                </View>
+              </TouchableOpacity>
+
+
+
+              <View style={{
+                marginTop: 20, flex: 0,
+                flexDirection: 'column', 
+                
+              }}>
                 <TouchableOpacity
-                  // disabled={true}
+
                   activeOpacity={0.8}
                   onPress={() => {
                     navigation.navigate('videohistory');
                   }}
                   style={{ flex: 0 }}>
                   <LinearGradient
-                    colors={['#ff9966', '#ff5e62']}
+                    colors={['#FC4B00', '#F87841']}
                     style={{
-                      flex: 0,
-                      marginLeft: -5,
-                      marginRight: 8,
-
-                      width: width * 0.42,
-                      height: SCREEN_HEIGHT * 0.15,
-                      //  justifyContent: 'center',
-                      alignItems: 'center',
+                      //width: width * 0.42,
+                      // alignItems: 'center',
                       marginBottom: 15,
-                      borderRadius: 10,
+                      borderRadius: 20,
                       elevation: 8,
                       shadowColor: colors.black_color4,
+                      paddingVertical: 20,
+                      padding:10,
+                      width:"100%",
+                      
+                      flexDirection:'row',
+                      justifyContent:'space-between'
                     }}>
                     <View
                       style={{
-                        flex: 0,
-                        flexDirection: 'row',
-                        alignItems: 'center',
+
                       }}>
-                      <View
-                        style={{
-                          flex: 0,
-                          width: 30,
-                          height: 30,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          backgroundColor: '#ffffff',
-                          borderRadius: 100,
-                          marginTop: -15,
-                          borderWidth: 1,
-                          borderColor: colors.new_color
-                        }}>
                         <Text
-                          style={{
-                            fontSize: getFontSize(1.5),
-                            color: colors.new_color,
-                            fontFamily: fonts.medium,
-                          }}>
-                          3
-                        </Text>
-                      </View>
-                    </View>
-                    {/* <View style={styles.boxContainerB}>
-                      <Text
-                        style={{
-                          fontSize: getFontSize(1.4),
-                          color: colors.white_color,
-                          textAlign: 'center',
-                        }}>
-                        Live/Video
-                      </Text>
-                    </View> */}
-                    <Text
                       style={{
                         fontSize: getFontSize(2),
                         color: colors.white_color,
-                        marginTop: 5,
+                        // marginTop: 5,
                         fontWeight: 'bold',
-                        textAlign: 'center',
-                        // fontFamily: fonts.montserrat_medium,
+                        // textAlign: 'center',
                       }}>
-                      {videoCallHistoryData?.length}
+
+                      {t("Today Active")}{t("Time")}
                     </Text>
-                    <View style={{ flex: 0, width: '80%' }}>
+                    </View>
+
+                    
+                    <View >
                       <Text
                         style={{
                           fontSize: 13,
@@ -1053,230 +706,586 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                           fontFamily: fonts.medium,
                           textAlign: 'center',
                         }}>
-                        {t("Total Video Call")}
+                        <Text>{formatTotalOnlineDuration(displayDuration)}</Text>
                       </Text>
                     </View>
-                    <View style={styles.boxContainerB}>
-                      <Text
-                        style={{
-                          fontSize: 12,
-                          color: colors.new_color,
-                          textAlign: 'center',
-                        }}>
-                        {t("Video")}
-                      </Text>
-                    </View>
+
                   </LinearGradient>
                 </TouchableOpacity>
-
                 <TouchableOpacity
                   activeOpacity={0.8}
                   onPress={() => {
-                    navigation.navigate('liveHistory');
+                    navigation.navigate('videohistory');
                   }}
                   style={{ flex: 0 }}>
                   <LinearGradient
-                    colors={['#70FF5B', '#28BF12']}
+                    colors={['#FC4B00', '#F87841']}
                     style={{
-                      flex: 0,
-                      width: width * 0.42,
-                      height: SCREEN_HEIGHT * 0.15,
-                      //  justifyContent: 'center',
-                      alignItems: 'center',
+                      //width: width * 0.42,
                       marginBottom: 15,
-                      borderRadius: 10,
+                      borderRadius: 20,
                       elevation: 8,
                       shadowColor: colors.black_color4,
+                      paddingVertical: 20,
+                      padding:10,
+                      flexDirection:"row",
+                      justifyContent:"space-between",
+                      
                     }}>
                     <View
                       style={{
-                        flex: 0,
-                        flexDirection: 'row',
-                        alignItems: 'center',
+
                       }}>
-                      <View
-                        style={{
-                          flex: 0,
-                          width: 30,
-                          height: 30,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          backgroundColor: '#ffffff',
-                          borderRadius: 100,
-                          marginTop: -15,
-                          borderWidth: 1,
-                          borderColor: colors.new_color
-                        }}>
                         <Text
-                          style={{
-                            fontSize: getFontSize(1.5),
-                            color: colors.new_color,
-                            fontFamily: fonts.medium,
-                          }}>
-                          4
-                        </Text>
-                      </View>
-                    </View>
-                    {/* <View style={styles.boxContainerB}>
-                      <Text
-                        style={{
-                          fontSize: getFontSize(1.4),
-                          color: colors.white_color,
-                          textAlign: 'center',
-                        }}>
-                        Live/Video
-                      </Text>
-                    </View> */}
-                    <Text
                       style={{
                         fontSize: getFontSize(2),
                         color: colors.white_color,
                         marginTop: 5,
                         fontWeight: 'bold',
                         textAlign: 'center',
-                        // fontFamily: fonts.montserrat_medium,
                       }}>
-                      {liveVedioCallHistoryData?.length}
+                      {t("Today InActive")}{t("Time")}
                     </Text>
-                    <View style={{ flex: 0, width: '80%' }}>
+
+                    </View>
+
+                    
+                    <View >
                       <Text
                         style={{
-                          fontSize: getFontSize(1.4),
+                          fontSize: 13,
                           color: colors.white_color,
-                          marginTop: 1,
+                          marginTop: 3,
                           fontFamily: fonts.medium,
                           textAlign: 'center',
                         }}>
-                        {t("Total Live Call")}
+                        <Text> {formatTotalOfflineDuration(offlineData?.data?.totalOfflineDuration)}</Text>
                       </Text>
                     </View>
-                    <View style={styles.boxContainerB}>
-                      <Text
-                        style={{
-                          fontSize: 12,
-                          color: colors.new_color,
-                          textAlign: 'center',
-                        }}>
-                        {t("Live")}
-                      </Text>
-                    </View>
+
                   </LinearGradient>
+
                 </TouchableOpacity>
               </View>
 
 
-            </View>
-            {callRequestData && <TouchableOpacity
-              onPress={() => navigation.navigate('intakeDetails')}
-              style={{
-                flex: 0,
-                padding: 12,
-
-                backgroundColor: colors.new_color,
-                borderRadius: 5,
-                marginBottom: 10,
-              }}>
-              <Text
-                style={{
-                  fontSize: getFontSize(1.4),
-                  color: colors.white_color,
-                  fontFamily: fonts.medium,
-                }}>
-                View Kundli for Current Call
-              </Text>
-            </TouchableOpacity>
-            }
-            {callVideoRequestData && <TouchableOpacity
-              onPress={() => navigation.navigate('intakeDetails')} // new page
-              style={{
-                flex: 0,
-                padding: 12,
-
-                backgroundColor: colors.new_color,
-                borderRadius: 5,
-              }}>
-              <Text
-                style={{
-                  fontSize: getFontSize(1.4),
-                  color: colors.white_color,
-                  fontFamily: fonts.medium,
-                }}>
-                {t("View Kundli for Current Video Calls")}
-              </Text>
-            </TouchableOpacity>}
-
-            <View style={{ display: "flex", flexDirection: "row", marginBottom: 5 + -0, gap: 10, marginTop: 15 }}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Assignedpuja')}
+              <View
                 style={{
                   flex: 0,
-                  padding: 12,
+                  padding: 15,
+                  //backgroundColor: colors.background_theme1,
+                  marginTop: 10,
+                  borderRadius: 10,
+                  shadowColor: colors.black_color6,
+                  shadowOffset: { width: 2, height: 2 },
+                  shadowOpacity: 0.3,
+                  shadowRadius: 5,
+                }}>
+                <View
+                  style={{
+                    flex: 0,
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}>
+
+                  <Text
+                    style={{
+                      fontSize: 14,
+                      color: colors.black_color,
+                      fontWeight: 'bold',
+                      marginLeft: 5,
+                      marginBottom: 8
+                    }}>
+                    {t("Your Pickup Order History")}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    flex: 0,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginTop: 20,
+                  }}>
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => {
+                      navigation.navigate('chatHistory');
+                    }}
+                    style={{ flex: 0 }}>
+                    <LinearGradient
+                      colors={['#FC4531', '#FC4531']}
+                      style={{
+                        flex: 0,
+                        width: width * 0.41,
+                        height: SCREEN_HEIGHT * 0.17,
+
+                        alignItems: 'center',
+                        marginBottom: 15,
+                        borderRadius: (SCREEN_HEIGHT * 0.17) / 2,
+                        marginLeft: -5,
+                        marginRight: 8,
+                        elevation: 8,
+                        shadowColor: colors.black_color4,
+                      }}>
+                      <View
+                        style={{
+                          flex: 0,
+                          flexDirection: 'row',
+                          alignItems: 'center',
+
+                          marginTop: -15
+                        }}>
+                        <View
+                          style={{
+                            flex: 0,
+                            width: 30,
+                            height: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: '#FFFFFF',
+                            borderRadius: 100,
+                            marginBottom: 2,
+                            borderWidth: 1,
+                            borderColor: colors.new_color1
+
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: getFontSize(1.5),
+                              color: colors.new_color,
+                              fontFamily: fonts.medium,
+                            }}>
+                            1
+                          </Text>
+                        </View>
+
+                      </View>
+
+                      <Text
+                        style={{
+                          fontSize: getFontSize(2),
+                          color: colors.white_color,
+                          marginTop: 3,
+                          fontWeight: 'bold',
+                          textAlign: 'center',
+
+                        }}>
+                        {chatHistoryData?.length}
+                      </Text>
+                      <View style={{ flex: 0, width: '80%' }}>
+                        <Text
+                          style={{
+                            fontSize: getFontSize(1.4),
+                            color: colors.white_color,
+                            marginTop: 1,
+                            fontFamily: fonts.medium,
+                            textAlign: 'center',
+                          }}>
+                          {t('Total Chat')}
+
+
+                        </Text>
+                      </View>
+                      <View style={styles.boxContainerB}>
+                        <Text style={{ fontSize: 12, color: colors.new_color }}>
+                          {t("Chat")}
+                        </Text>
+                      </View>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => {
+                      navigation.navigate('callHistory');
+                    }}
+                    style={{ flex: 0 }}>
+                    <LinearGradient
+                      colors={['#34E281', '#34E281']}
+                      style={{
+                        flex: 0,
+                        width: width * 0.41,
+                        height: SCREEN_HEIGHT * 0.17,
+
+
+                        alignItems: 'center',
+                        marginBottom: 15,
+                        borderRadius: (SCREEN_HEIGHT * 0.17) / 2,
+                        elevation: 8,
+                        shadowColor: colors.black_color4,
+                      }}>
+                      <View
+                        style={{
+                          flex: 0,
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                        }}>
+                        <View
+                          style={{
+                            flex: 0,
+                            width: 30,
+                            height: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: '#ffffff',
+                            borderRadius: 100,
+                            marginTop: -15,
+                            borderColor: colors.new_color1,
+                            borderWidth: 1
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: getFontSize(1.5),
+                              color: colors.new_color,
+                              fontFamily: fonts.medium,
+                            }}>
+                            2
+                          </Text>
+                        </View>
+                      </View>
+
+                      <Text
+                        style={{
+                          fontSize: getFontSize(2),
+                          color: colors.white_color,
+                          marginTop: 5,
+                          fontWeight: 'bold',
+                          textAlign: 'center',
+
+                        }}>
+                        {callHistoryData?.length}
+                      </Text>
+                      <View style={{ flex: 0, width: '80%' }}>
+                        <Text
+                          style={{
+                            fontSize: getFontSize(1.4),
+                            color: colors.white_color,
+                            marginTop: 0.5,
+                            fontFamily: fonts.medium,
+                            textAlign: 'center',
+                          }}>
+                          {t('Total Voice Call')}
+                        </Text>
+                      </View>
+                      <View style={styles.boxContainerB}>
+                        <Text
+                          style={{
+                            fontSize: 12,
+                            color: colors.new_color,
+                            textAlign: 'center',
+                          }}>
+                          {t("Call")}
+                        </Text>
+                      </View>
+                    </LinearGradient>
+                  </TouchableOpacity>
+
+                </View>
+
+
+                <View
+                  style={{
+                    flex: 0,
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginTop: 6,
+                  }}>
+
+                  <TouchableOpacity
+
+                    activeOpacity={0.8}
+                    onPress={() => {
+                      navigation.navigate('videohistory');
+                    }}
+                    style={{ flex: 0 }}>
+                    <LinearGradient
+                      colors={['#29BE12', '#29BE12']}
+                      style={{
+                        flex: 0,
+                        marginLeft: -5,
+                        marginRight: 8,
+
+                        width: width * 0.41,
+                        height: SCREEN_HEIGHT * 0.17,
+
+                        alignItems: 'center',
+                        marginBottom: 15,
+                        borderRadius: (SCREEN_HEIGHT * 0.17) / 2,
+                        elevation: 8,
+                        shadowColor: colors.black_color4,
+                      }}>
+                      <View
+                        style={{
+                          flex: 0,
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                        }}>
+                        <View
+                          style={{
+                            flex: 0,
+                            width: 30,
+                            height: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: '#ffffff',
+                            borderRadius: 100,
+                            marginTop: -15,
+                            borderWidth: 1,
+                            borderColor: colors.new_color1
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: getFontSize(1.5),
+                              color: colors.new_color,
+                              fontFamily: fonts.medium,
+                            }}>
+                            3
+                          </Text>
+                        </View>
+                      </View>
+                      
+                      <Text
+                        style={{
+                          fontSize: getFontSize(2),
+                          color: colors.white_color,
+                          marginTop: 5,
+                          fontWeight: 'bold',
+                          textAlign: 'center',
+                          
+                        }}>
+                        {videoCallHistoryData?.length}
+                      </Text>
+                      <View style={{ flex: 0, width: '80%' }}>
+                        <Text
+                          style={{
+                            fontSize: 13,
+                            color: colors.white_color,
+                            marginTop: 3,
+                            fontFamily: fonts.medium,
+                            textAlign: 'center',
+                          }}>
+                          {t("Total Video Call")}
+                        </Text>
+                      </View>
+                      <View style={styles.boxContainerB}>
+                        <Text
+                          style={{
+                            fontSize: 12,
+                            color: colors.new_color,
+                            textAlign: 'center',
+                          }}>
+                          {t("Video")}
+                        </Text>
+                      </View>
+                    </LinearGradient>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    activeOpacity={0.8}
+                    onPress={() => {
+                      navigation.navigate('liveHistory');
+                    }}
+                    style={{ flex: 0 }}>
+                    <LinearGradient
+                      colors={['#FC4B00', '#FC4B00']}
+                      style={{
+                        flex: 0,
+                        width: width * 0.41,
+                        height: SCREEN_HEIGHT * 0.17,
+                       
+                        alignItems: 'center',
+                        marginBottom: 15,
+                        borderRadius: (SCREEN_HEIGHT * 0.17) / 2,
+                        elevation: 8,
+                        shadowColor: colors.black_color4,
+                      }}>
+                      <View
+                        style={{
+                          flex: 0,
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                        }}>
+                        <View
+                          style={{
+                            flex: 0,
+                            width: 30,
+                            height: 30,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            backgroundColor: '#ffffff',
+                            borderRadius: 100,
+                            marginTop: -15,
+                            borderWidth: 1,
+                            borderColor: colors.new_color1
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: getFontSize(1.5),
+                              color: colors.new_color,
+                              fontFamily: fonts.medium,
+                            }}>
+                            4
+                          </Text>
+                        </View>
+                      </View>
+                      
+                      <Text
+                        style={{
+                          fontSize: getFontSize(2),
+                          color: colors.white_color,
+                          marginTop: 5,
+                          fontWeight: 'bold',
+                          textAlign: 'center',
+                          
+                        }}>
+                        {liveVedioCallHistoryData?.length}
+                      </Text>
+                      <View style={{ flex: 0, width: '80%' }}>
+                        <Text
+                          style={{
+                            fontSize: getFontSize(1.4),
+                            color: colors.white_color,
+                            marginTop: 1,
+                            fontFamily: fonts.medium,
+                            textAlign: 'center',
+                          }}>
+                          {t("Total Live Call")}
+                        </Text>
+                      </View>
+                      <View style={styles.boxContainerB}>
+                        <Text
+                          style={{
+                            fontSize: 12,
+                            color: colors.new_color,
+                            textAlign: 'center',
+                          }}>
+                          {t("Live")}
+                        </Text>
+                      </View>
+                    </LinearGradient>
+                  </TouchableOpacity>
+                </View>
+
+
+              </View>
+              {callRequestData && <TouchableOpacity
+                onPress={() => navigation.navigate('intakeDetails')}
+                style={{
+                  flex: 0,
+                  padding: 15,
+
                   backgroundColor: colors.new_color,
-                  borderRadius: 5,
-                  width: "49%"
+                  borderRadius: 20,
+                  marginBottom: 10,
+                  justifyContent:"center",
+                  alignItems:"center"
                 }}>
                 <Text
                   style={{
                     fontSize: getFontSize(1.4),
                     color: colors.white_color,
                     fontFamily: fonts.medium,
-                    textAlign: 'center'
                   }}>
-                  {t("Assigned Puja")}
+                  View Kundli for Current Call
                 </Text>
               </TouchableOpacity>
-
-              <TouchableOpacity
-                onPress={() => navigation.navigate('Completepuja')}
+              }
+              {callVideoRequestData && <TouchableOpacity
+                onPress={() => navigation.navigate('intakeDetails')}
                 style={{
                   flex: 0,
                   padding: 12,
+
                   backgroundColor: colors.new_color,
                   borderRadius: 5,
-                  width: "49%"
                 }}>
                 <Text
                   style={{
                     fontSize: getFontSize(1.4),
                     color: colors.white_color,
                     fontFamily: fonts.medium,
-                    textAlign: 'center'
                   }}>
-                  {t("Completed Puja")}
+                  {t("View Kundli for Current Video Calls")}
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity>}
+
+              <View style={{ display: "flex", flexDirection: "row", marginBottom: 5 + -0, gap: 10, marginTop: 15 }}>
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Assignedpuja')}
+                  style={{
+                    flex: 0,
+                    padding: 12,
+                    backgroundColor: colors.new_color,
+                    borderRadius: 50,
+                    width: "49%"
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: getFontSize(1.4),
+                      color: colors.white_color,
+                      fontFamily: fonts.medium,
+                      textAlign: 'center'
+                    }}>
+                    {t("Assigned Puja")}
+                  </Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('Completepuja')}
+                  style={{
+                    flex: 0,
+                    padding: 12,
+                    backgroundColor: colors.new_color,
+                    borderRadius: 50,
+                    width: "49%"
+                  }}>
+                  <Text
+                    style={{
+                      fontSize: getFontSize(1.4),
+                      color: colors.white_color,
+                      fontFamily: fonts.medium,
+                      textAlign: 'center'
+                    }}>
+                    {t("Completed Puja")}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+
             </View>
 
-          </View>
 
-
-        </ScrollView>
-      </View>
-      <Modal
-        visible={anouncementsVisible}
-        transparent={true}
-      >
-        <View style={styles.modalContainerA}>
-          <View style={styles.modalContainerBB}>
-            <View style={styles.modalContainerC}>
-              <Text style={styles.modalTextA}>{t("announcement")}</Text>
-              <TouchableOpacity
-                onPress={() => {
-                  dispatch(ProviderActions.onReadAnouncement(anouncementData[0]?._id))
-                  setAnouncementsVisible(false);
-                }}
-                style={{ padding: 3 }}>
-                <Ionicons
-                  name="close-outline"
-                  color={colors.black_color8}
-                  size={25}
-                />
-              </TouchableOpacity>
-            </View>
-            {anouncementData?.[0]?.description && <RenderHtml source={{ html: anouncementData?.[0]?.description }} contentWidth={SCREEN_WIDTH} />}
-          </View>
+          </ScrollView>
         </View>
-      </Modal>
+        <Modal
+          visible={anouncementsVisible}
+          transparent={true}
+        >
+          <View style={styles.modalContainerA}>
+            <View style={styles.modalContainerBB}>
+              <View style={styles.modalContainerC}>
+                <Text style={styles.modalTextA}>{t("announcement")}</Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    dispatch(ProviderActions.onReadAnouncement(anouncementData[0]?._id))
+                    setAnouncementsVisible(false);
+                  }}
+                  style={{ padding: 3 }}>
+                  <Ionicons
+                    name="close-outline"
+                    color={colors.black_color8}
+                    size={25}
+                  />
+                </TouchableOpacity>
+              </View>
+              {anouncementData?.[0]?.description && <RenderHtml source={{ html: anouncementData?.[0]?.description }} contentWidth={SCREEN_WIDTH} />}
+            </View>
+          </View>
+        </Modal>
+
+      </LinearGradient>
+
     </View>
   );
 };
@@ -1304,20 +1313,30 @@ const styles = StyleSheet.create({
     width: '30%',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#F45F4B",
-    borderRadius: 5,
-    paddingVertical: 4,
-    backgroundColor: '#F45F4B'
+    borderColor: "#fff",
+    borderRadius: 10,
+    paddingVertical: 15,
+    // backgroundColor: '#F45F4B'
+  },
+  boxCont: {
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: "white",
+    borderRadius: 20,
+    elevation: 1,
+    padding: 5,
+    margin:10,
+    marginHorizontal: 10
   },
   boxContainerA: {
     flex: 0,
-    width: '48%',
+    width: '42%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.green_color2,
-    paddingVertical: 10,
-    borderRadius: 5,
+    paddingVertical: 15,
+    borderRadius: 20,
     marginBottom: 10,
   },
   boxContainerB: {
