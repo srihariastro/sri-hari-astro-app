@@ -236,6 +236,7 @@ export const colors = {
   green_color1: '#6a994e',
   green_color2: '#29bf12',
   yellow_color1: '#ffbc42',
+  yellow_Color5:"#FFC343",
   yellow_color2: '#ffdab9',
   yellow_color3: '#f4a261',
   yellow_color4: '#fffae5',
@@ -254,6 +255,7 @@ export const colors = {
   orange_color: '#7d0300',
   new_color: '#FC4B00',
   new_color1:"#FCBE31",
+  
 
 };
 

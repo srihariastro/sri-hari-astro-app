@@ -174,34 +174,35 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
 
 
 
-  const onNextOnline = () => {
-    try {
-      const ondatePick = (event, date) => {
-        const onTimePick = (event, time) => {
-          if (event.type === 'set') {
-            console.log('start ')
-            dispatch(SettingActions.onNextOnline({ date, time }))
-          }
-        }
+  // const onNextOnline = () => {
+  //   try {
+  //     const ondatePick = (event, date) => {
+  //       const onTimePick = (event, time) => {
+  //         if (event.type === 'set') {
+  //           console.log('start ')
+  //           dispatch(SettingActions.onNextOnline({ date, time }))
+  //         }
+  //       }
 
-        if (event.type === 'set') {
-          DateTimePickerAndroid.open({
-            value: new Date(),
-            onChange: onTimePick,
-            mode: 'time',
-          });
-        }
-      }
+  //       if (event.type === 'set') {
+  //         DateTimePickerAndroid.open({
+  //           value: new Date(),
+  //           onChange: onTimePick,
+  //           mode: 'time',
+  //         });
+  //       }
+  //     }
 
-      DateTimePickerAndroid.open({
-        value: new Date(),
-        onChange: ondatePick,
-        mode: 'date',
-      });
-    } catch (e) {
-      console.log(e)
-    }
-  }
+  //     DateTimePickerAndroid.open({
+  //       value: new Date(),
+  //       onChange: ondatePick,
+  //       mode: 'date',
+  //     });
+  //   } catch (e) {
+  //     console.log(e)
+  //   }
+  // }
+
   function formatFollowerCount(count) {
     if (count >= 1000000) {
       return (count / 1000000).toFixed(1) + 'M';
@@ -437,10 +438,11 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                 style={{
                   flex: 0,
                   flexDirection: 'row',
-                  justifyContent: 'space-between',
+                  justifyContent: 'space-evenly',
                   alignItems: 'center',
                   flexWrap: 'wrap',
-                  marginTop: 20,
+                  marginTop: 10,
+                  marginBottom:10,
                 }}>
                 <TouchableOpacity
                   onPress={() => {
@@ -542,10 +544,12 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => navigation.navigate('livePreview')}
+                  onPress={() =>{
+                    showToastMessage({ message: 'Coming Soon' });
+                  }}
                   style={{
                     ...styles.boxContainerA,
-                    backgroundColor: colors.new_color,
+                    backgroundColor: "#FFC343",
                   }}>
 
                   <Image source={require('../../assets/images/icon/live.png')} style={{ height: SCREEN_WIDTH * 0.05, width: SCREEN_WIDTH * 0.05 }} />
@@ -561,11 +565,14 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                 </TouchableOpacity>
               </View>
               <TouchableOpacity
-                onPress={() => onNextOnline()}
+                onPress={() =>{
+                  showToastMessage({ message: 'Coming Soon' });
+                }}
                 style={{
                   ...styles.boxContainerA,
                   width: '100%',
-                  backgroundColor: providerData?.nextOnline?.date ? colors.green_color2 : "#f45f4b",
+                  backgroundColor: providerData?.nextOnline?.date ? colors.green_color2 : "#29bf12",
+                  marginBottom:10
                 }}>
 
                 <Text
@@ -614,7 +621,7 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                       marginBottom: 5,
 
                     }}>
-                    {t('sri-hari-astro')}{'\n'}{t("announcement_message")}{'\n'}{t("please_check")}
+                    {t('sri hari astro')}{'\n'}{t("announcement_message")}{'\n'}{t("please_check")}
                   </Text>
                 </TouchableOpacity>
                 <View
@@ -692,7 +699,7 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                         // textAlign: 'center',
                       }}>
 
-                      {t("Today Active")}{t("Time")}
+                      {t("Today Working")}{t("Time")}
                     </Text>
                     </View>
 
@@ -984,7 +991,7 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                 </View>
 
 
-                <View
+                {/* <View
                   style={{
                     flex: 0,
                     flexDirection: 'row',
@@ -1166,7 +1173,7 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                       </View>
                     </LinearGradient>
                   </TouchableOpacity>
-                </View>
+                </View> */}
 
 
               </View>
