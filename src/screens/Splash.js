@@ -34,8 +34,8 @@ const Splash = ({ navigation, dispatch }) => {
   );
   function imageview() {
     return (
-      <View style={{ height: SCREEN_WIDTH * 0.4, width: SCREEN_WIDTH * 0.6, borderRadius: 100, overflow: 'hidden' }}>
-        <Image source={require('../assets/images/newSriHariLogo.png')} style={{ height: SCREEN_WIDTH * 0.5, width: SCREEN_WIDTH * 0.6, resizeMode: 'contain', }} />
+      <View style={{ height: SCREEN_WIDTH * 0.6, width: SCREEN_WIDTH * 0.6, overflow: 'hidden' }}>
+        <Image source={require('../assets/images/appstore.png')} style={{ height: SCREEN_WIDTH * 0.6, width: SCREEN_WIDTH * 0.6, resizeMode: 'contain', }} />
       </View>
     )
   }

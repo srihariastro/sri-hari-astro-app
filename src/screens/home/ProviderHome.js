@@ -477,41 +477,6 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                   </Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={() => {
-                    if (providerData?.video_call_status == 'offline' || providerData?.video_call_status == 'busy') {
-                      dispatch(SettingActions.updateVideoCallStatus('online'))
-                    } else {
-                      dispatch(SettingActions.updateVideoCallStatus('offline'))
-                    }
-                  }}
-                  style={{
-                    ...styles.boxContainerA,
-                    backgroundColor:
-                      providerData?.video_call_status == 'offline' || providerData?.video_call_status.length == 0
-                        ? colors.black_color5 : providerData?.video_call_status == 'busy'
-                          ? "#ffc600" : colors.green_color2,
-
-                  }}
-                >
-                  <FontAwesome
-                    name="video-camera"
-                    color={colors.white_color}
-                    size={16}
-                  />
-                  <Text
-                    style={{
-                      fontSize: 13,
-                      color: colors.white_color,
-                      fontWeight: 'normal',
-                      marginLeft: 5,
-                    }}>
-                    {providerData?.video_call_status.length == 0 ?
-                      t("offline") : providerData?.video_call_status == 'online' ? t("online") :
-                        providerData?.video_call_status == 'busy' ? t("busy") : t("offline")}
-
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
 
                   onPress={() => {
                     if (providerData?.chat_status == 'offline' || providerData?.chat_status == 'busy') {
@@ -543,6 +508,44 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                       providerData?.chat_status == 'online' ? t("online") : providerData?.chat_status == 'offline' ? t("offline") : t("busy")}
                   </Text>
                 </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => {
+                    showToastMessage({ message: 'Coming Soon' });
+                    // if (providerData?.video_call_status == 'offline' || providerData?.video_call_status == 'busy') {
+                    //   dispatch(SettingActions.updateVideoCallStatus('online'))
+                    // } else {
+                    //   dispatch(SettingActions.updateVideoCallStatus('offline'))
+                    // }
+
+                  }}
+                  style={{
+                    ...styles.boxContainerA,
+                    backgroundColor:
+                      providerData?.video_call_status == 'offline' || providerData?.video_call_status.length == 0
+                        ? colors.black_color5 : providerData?.video_call_status == 'busy'
+                          ? "#ffc600" : colors.green_color2,
+
+                  }}
+                >
+                  <FontAwesome
+                    name="video-camera"
+                    color={colors.white_color}
+                    size={16}
+                  />
+                  <Text
+                    style={{
+                      fontSize: 13,
+                      color: colors.white_color,
+                      fontWeight: 'normal',
+                      marginLeft: 5,
+                    }}>
+                    {providerData?.video_call_status.length == 0 ?
+                      t("offline") : providerData?.video_call_status == 'online' ? t("online") :
+                        providerData?.video_call_status == 'busy' ? t("busy") : t("offline")}
+
+                  </Text>
+                </TouchableOpacity>
+                
                 <TouchableOpacity
                   onPress={() =>{
                     showToastMessage({ message: 'Coming Soon' });
@@ -621,7 +624,7 @@ const ProviderHome = ({ providerData, navigation, dispatch, callRequestData, cal
                       marginBottom: 5,
 
                     }}>
-                    {t('sri hari astro')}{'\n'}{t("announcement_message")}{'\n'}{t("please_check")}
+                    {t('Sri Hari Astro')}{'\n'}{t("announcement_message")}{'\n'}{t("please_check")}
                   </Text>
                 </TouchableOpacity>
                 <View

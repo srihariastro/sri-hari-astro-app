@@ -97,7 +97,7 @@ const Gifthistrotyorder = ({ giftOrderHistoryData, navigation, dispatch }) => {
                 <FlatList data={giftOrderHistoryData} renderItem={renderItem} initialNumToRender={5} contentContainerStyle={{ padding: Sizes.fixPadding * 1.5 }} />
             ) : (
                 <View style={styles.emptyContainer}>
-                    <Text style={styles.emptyText}>No chat history available.</Text>
+                    <Text style={styles.emptyText}>No gift history available.</Text>
                 </View>
             )}
         </View>
