@@ -225,7 +225,7 @@ export const colors = {
   black_color1: '#f8f9fa',
   black_color2: '#e9ecef',
   black_color3: '#dee2e6',
-  black_color4: '#ced4da',
+  black_color4: '#34E281',
   black_color5: '#adb5bd',
   black_color6: '#6c757d',
   black_color7: '#495057',
@@ -236,6 +236,7 @@ export const colors = {
   green_color1: '#6a994e',
   green_color2: '#29bf12',
   yellow_color1: '#ffbc42',
+  yellow_Color5:"#FFC343",
   yellow_color2: '#ffdab9',
   yellow_color3: '#f4a261',
   yellow_color4: '#fffae5',
@@ -247,12 +248,15 @@ export const colors = {
   red_color1: '#ff5a5f',
   background_theme1: '#fff',
   // background_theme2: '#FA5D08',
-  background_theme2: '#F45F4B', //friendsastro
+  background_theme2: '#FC4B00', //friendsastro
 
   background_theme4: '#FFA800',
   background_theme3: '#bdd3ff',
   orange_color: '#7d0300',
-  new_color: '#F45F4B'
+  new_color: '#FC4B00',
+  new_color1:"#FCBE31",
+  
+
 };
 
 export const fonts = {

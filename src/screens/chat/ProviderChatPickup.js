@@ -161,7 +161,7 @@ const ProviderChatPickup = ({
               fontFamily: fonts.bold,
               textAlign: 'center',
             }}>
-            AstroRemedy
+            sri-hari-astro
           </Text>
         </View>
       </View>

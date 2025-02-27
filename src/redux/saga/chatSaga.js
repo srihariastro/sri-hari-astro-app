@@ -16,6 +16,8 @@ function* onAcceptRejectChat(actions) {
     try {
         const { requestData, status } = actions.payload
         if (status == 'accept') {
+            console.log("requestData?.chatId>>", requestData?.chatId);
+            
             socketServices.emit('onAstroAccept', requestData?.chatId)
             socketServices.emit('joinChatRoom', requestData?.chatId)
             yield AsyncStorage.setItem('chatData', JSON.stringify(requestData))

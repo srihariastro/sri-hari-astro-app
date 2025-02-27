@@ -117,7 +117,7 @@ export const Fonts = {
   },
 
   black16RobotoMedium: {
-    color: Colors.black,
+    color: Colors.white,
     fontSize: 16,
     fontFamily: 'Roboto-Medium',
   },

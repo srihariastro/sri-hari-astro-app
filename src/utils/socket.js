@@ -4,31 +4,34 @@ import { resetToScreen } from '../navigations/NavigationServices';
 import { showToastMessage } from './services';
 import * as ChatActions from '../redux/actions/ChatActions'
 // const SOCKET_URL = 'http://localhost:4000/';
-const SOCKET_URL = base_url;
+// const SOCKET_URL = base_url;
+const SOCKET_URL = "ws://145.223.22.200:5000";
 
 class WSService {
 
   initializeSocket = async (dispatch) => {
     try {
+      console.log('Initializing Socket Connection...');  // <-- ADD THIS
+
       this.socket = io(SOCKET_URL, {
-        transports: ['websocket'],
-        reconnection: true,                // Enable reconnection
-        reconnectionAttempts: Infinity,    // Retry indefinitely
-        reconnectionDelay: 1000,           // 1 second delay between reconnections
-        reconnectionDelayMax: 5000,        // Max delay of 5 seconds
-        timeout: 20000,
+          transports: ['websocket'],
+          reconnection: true,
+          reconnectionAttempts: Infinity,
+          reconnectionDelay: 1000,
+          reconnectionDelayMax: 5000,
+          timeout: 20000,
       });
 
-      this.socket.on('connect', data => {
-        console.log('Socket Connected',data);
+      this.socket.on('connect', () => {
+          console.log('✅ Socket Connected!');
       });
 
-      this.socket.on('disconnect', reason => {
-        console.log('Socket Disconnected:', reason);
-        if (reason === 'io server disconnect') {
-          // The disconnection was initiated by the server, you need to reconnect manually
-          this.socket.connect();
-        }
+      this.socket.on('disconnect', (reason) => {
+          console.log('❌ Socket Disconnected:', reason);
+      });
+
+      this.socket.on('error', (error) => {
+          console.log('⚠️ Socket Error:', error);
       });
 
       this.socket.on('reconnect_attempt', () => {
@@ -60,6 +63,8 @@ class WSService {
 
 
       this.socket.on('updateChatTimer', data => {
+        console.log("datatimer12>", data);
+        
         dispatch(ChatActions.setChatTimerCountdown(data));
       });
 
